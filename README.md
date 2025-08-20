@@ -86,8 +86,6 @@ docker-compose ps
 ### Acesso à Aplicação
 
 - **API Swagger**: http://localhost:8080/swagger-ui.html
-- **Mongo Express**: http://localhost:8081 (admin/admin)
-- **API Base URL**: http://localhost:8080/v1
 
 ## 🔐 Autenticação e Primeiros Passos
 
