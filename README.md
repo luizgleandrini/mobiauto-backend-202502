@@ -124,8 +124,7 @@ POST /v1/users
 POST /v1/dealerships
 {
   "cnpj": "12345678000190", # é necessário um CNPJ válido recomenda-se uso de um cnpj generator, e o formado deve ser apenas números
-  "socialName": "Revenda Silva LTDA",
-  "fantasyName": "Silva Veículos"
+  "socialName": "Revenda Silva LTDA"
 }
 ```
 
