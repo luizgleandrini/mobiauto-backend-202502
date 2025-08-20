@@ -1,0 +1,9 @@
+challenge\leandrini\domains\users\usecases\create\CreateUserUseCaseTest.class
+challenge\leandrini\domains\oportunidades\usecases\create\CreateOpportunityUseCaseTest.class
+challenge\leandrini\domains\revendas\usecases\listdealerships\ListDealershipsUseCaseTest.class
+challenge\leandrini\domains\revendas\usecases\update\UpdateDealershipUseCaseTest.class
+challenge\leandrini\domains\oportunidades\usecases\update\UpdateOpportunityUseCaseTest.class
+challenge\leandrini\domains\users\usecases\listusers\ListUsersUseCaseTest.class
+challenge\leandrini\domains\oportunidades\usecases\list\ListOpportunitiesUseCaseTest.class
+challenge\leandrini\domains\revendas\usecases\create\CreateDealershipUseCaseTest.class
+challenge\leandrini\domains\users\usecases\updateuser\UpdateUserUseCaseTest.class

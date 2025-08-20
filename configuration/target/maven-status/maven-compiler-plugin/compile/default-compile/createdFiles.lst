@@ -1,0 +1,8 @@
+challenge\leandrini\config\SecurityConfig.class
+challenge\leandrini\config\WebRequestConfig.class
+challenge\leandrini\exception\MobiAutoExceptionHandler.class
+challenge\leandrini\config\SecurityConfig$1.class
+challenge\leandrini\MobiAutoApp.class
+challenge\leandrini\exception\GlobalExceptionHandler.class
+challenge\leandrini\config\CustomUserDetailsService$HardcodedUser.class
+challenge\leandrini\config\CustomUserDetailsService.class

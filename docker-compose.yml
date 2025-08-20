@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  # ===========================================
+  # DATABASE SERVICES
+  # ===========================================
+
+  # MongoDB Database
+  mongo:
+    image: mongo:latest
+    container_name: mobiauto-mongodb
+    restart: unless-stopped
+    environment:
+      # MongoDB initialization variables
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: mobiauto
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./docker/mongo-init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - mobiauto-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # MongoDB Admin UI (Development/Testing only)
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mobiauto-mongo-express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      # Mongo Express configuration
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - mobiauto-network
+    profiles:
+      - development
+      - testing
+
+  # ===========================================
+  # APPLICATION SERVICES
+  # ===========================================
+
+  # Mobiauto Backend Application
+  mobiauto-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mobiauto-backend-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # ===========================================
+      # DATABASE CONNECTION
+      # ===========================================
+      SPRING_DATA_MONGODB_HOST: mongo
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_DATABASE: mobiauto
+      SPRING_DATA_MONGODB_USERNAME: root
+      SPRING_DATA_MONGODB_PASSWORD: root
+      SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE: admin
+
+
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - mobiauto-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  mobiauto-network:
+    driver: bridge
