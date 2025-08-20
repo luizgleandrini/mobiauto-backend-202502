@@ -17,7 +17,7 @@ O **Mobiauto Backend** é uma aplicação desenvolvida em Java com Spring Boot q
 
 ### Pré-requisitos
 
-- **Java 21** ou superior
+- **Java 21**
 - **Maven 3.8+**
 - **Docker** e **Docker Compose**
 - **Git**
@@ -97,7 +97,7 @@ O sistema possui usuários hardcoded para facilitar os testes iniciais:
 
 | Usuário | Senha | Papel | Descrição |
 |---------|--------|-------|-----------|
-| `admin` | `admin` | ADMIN | Acesso total ao sistema |
+| `admin` | `admin123` | ADMIN | Acesso total ao sistema |
 
 ### Como Usar o Sistema
 
@@ -124,8 +124,7 @@ POST /v1/users
 POST /v1/dealerships
 {
   "cnpj": "12345678000190", # é necessário um CNPJ válido recomenda-se uso de um cnpj generator, e o formado deve ser apenas números
-  "socialName": "Revenda Silva LTDA",
-  "fantasyName": "Silva Veículos"
+  "socialName": "Revenda Silva LTDA"
 }
 ```
 
