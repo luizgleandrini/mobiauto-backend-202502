@@ -17,7 +17,7 @@ O **Mobiauto Backend** é uma aplicação desenvolvida em Java com Spring Boot q
 
 ### Pré-requisitos
 
-- **Java 21** ou superior
+- **Java 21**
 - **Maven 3.8+**
 - **Docker** e **Docker Compose**
 - **Git**
@@ -97,7 +97,7 @@ O sistema possui usuários hardcoded para facilitar os testes iniciais:
 
 | Usuário | Senha | Papel | Descrição |
 |---------|--------|-------|-----------|
-| `admin` | `admin` | ADMIN | Acesso total ao sistema |
+| `admin` | `admin123` | ADMIN | Acesso total ao sistema |
 
 ### Como Usar o Sistema
 
